@@ -1,0 +1,168 @@
+<?php
+include('../app/config.php');
+include('../layout/sesion.php');
+
+include('../layout/parte1.php');
+
+//include('../app/controllers/almacen/listado_de_productos.php');
+//include('../app/controllers/categorias/listado_de_categorias.php');
+
+
+include('../app/controllers/almacen/cargar_producto.php');
+
+
+
+?>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12">
+                    <h1 class="m-0">Dados do Produto:<b> <?php echo $nombre; ?></b></h1>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <div class="content">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-info">
+                        <div class="card-header">
+                            <h3 class="card-title">Formulário de Visualização dos dados do Produto</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                            <!-- /.card-tools -->
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body" style="display: block;">
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                    
+
+                                        <div class="row">
+                                            <div class="col-md-9">
+
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="">Código:</label>
+                                                            
+                                                            <input type="text" class="form-control" value="<?php echo $codigo; ?>" disabled>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="">Categoria:</label>
+                                                            <div style="display: flex">
+                                                            <input type="text" value="<?php echo $nombre_categoria;?>" class="form-control" disabled>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="">Nome do Produto:</label>
+                                                            <input name="nombre" value="<?php echo $nombre; ?>" type="text" class="form-control" disabled>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="">Usuário:</label>
+                                                            <input name="" type="text" class="form-control" value="<?php echo $email; ?>" disabled>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="form-group">
+                                                            <label for="">Descrição do Produto:</label>
+                                                            <textarea name="descripcion" id="descripcion" cols="30" rows="2" class="form-control" disabled><?php echo $descripcion; ?></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label for="">Estoque:</label>
+                                                            <input type="number" name="stock" value="<?php echo $stock; ?>" class="form-control" disabled>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label for="">Estoque Mínimo:</label>
+                                                            <input type="number" name="stock_minimo" value="<?php echo $stock_minimo; ?>" class="form-control" disabled>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label for="">Estoque Máximo:</label>
+                                                            <input type="number" name="stock_maximo" value="<?php echo $stock_maximo; ?>" class="form-control" disabled>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label for="">Preço Compra:</label>
+                                                            <input type="number" name="precio_compra" value="<?php echo $precio_compra; ?>" class="form-control" disabled>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label for="">Preço Venda:</label>
+                                                            <input type="number" name="precio_venta" value="<?php echo $precio_venta; ?>" class="form-control" disabled>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label for="">Data Entrada:</label>
+                                                            <input type="date" name="fecha_ingreso" value="<?php echo $fecha_ingreso; ?>" class="form-control" disabled>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="">Imagem do Produto</label>
+                                                    <center>
+                                                        <img src="<?php echo $URL ."/almacen/img_productos/".$imagen; ?>" width="100%" alt="">
+                                                    </center>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <hr>
+                                        <div class="form-group">
+                                            <a href="index.php" class="btn btn-secondary">C a n c e l a r</a>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<?php include('../layout/mensajes.php'); ?>
+<?php include('../layout/parte2.php'); ?>
