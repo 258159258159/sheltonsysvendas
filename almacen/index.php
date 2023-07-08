@@ -59,47 +59,58 @@ include('../app/controllers/almacen/listado_de_productos.php');
                                         <th><center>Usuário</center></th>
                                         <th><center>Ações</center></th>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    $contador = 0;
-                                    foreach ($productos_datos as $productos_dato) { 
-                                        $id_producto = $productos_dato['id_producto'];
-                                        ?>
-                                    <tr>
-                                        <td><?php echo $contador = $contador + 1; ?></td>
-                                        <td><?php echo $productos_dato['codigo']; ?></td>
-                                        <td><?php echo $productos_dato['categoria']; ?></td>
-                                        <td>
-                                            <img src="<?php echo $URL."/almacen/img_productos/".$productos_dato['imagen']; ?>" width="50px" alt="">
-                                        </td>
-                                        <td><?php echo $productos_dato['nombre']; ?></td>
-                                        <td><?php echo $productos_dato['descripcion']; ?></td>
-                                        <td><?php echo $productos_dato['stock']; ?></td>
-                                        <td><?php echo $productos_dato['stock_minimo']; ?></td>
-                                        <td><?php echo $productos_dato['precio_venta']; ?></td>
-                                        <td><?php echo $productos_dato['fecha_ingreso']; ?></td>
-                                        <td><?php echo $productos_dato['email']; ?></td>
-                                        <td>
-                                        <center>
-                                               <div class="btn-group">
-                                                    <a href="show.php?id=<?php echo $id_producto; ?>" type="button" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> Ver</a>
-                                                    <a href="update.php?id=<?php echo $id_producto; ?>" type="button" class="btn btn-success btn-sm"><i class="fa fa-pencil-alt"></i> Editar</a>
-                                                    <a href="delete.php?id=<?php echo $id_producto; ?>" type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Excluir</a>
-                                                </div>
+                                    </thead>
+                                   <tbody>
+                                   <?php
+                                   $contador = 0;
+                                   foreach ($productos_datos as $productos_dato){
+                                       $id_producto = $productos_dato['id_producto']; ?>
+                                       <tr>
+                                           <td><?php echo $contador = $contador + 1; ?></td>
+                                           <td><?php echo $productos_dato['codigo'];?></td>
+                                           <td><?php echo $productos_dato['categoria'];?></td>
+                                           <td>
+                                               <img src="<?php echo $URL."/almacen/img_productos/".$productos_dato['imagen'];?>" width="50px" alt="asdf">
+                                           </td>
+                                           <td><?php echo $productos_dato['nombre'];?></td>
+                                           <td><?php echo $productos_dato['descripcion'];?></td>
+                                           <?php
+                                           $stock_actual = $productos_dato['stock'];
+                                           $stock_maximo = $productos_dato['stock_maximo'];
+                                           $stock_minimo = $productos_dato['stock_minimo'];
+                                           if($stock_actual < $stock_minimo){ ?>
+                                               <td style="background-color: #ee868b"><center><?php echo $productos_dato['stock'];?></center></td>
+                                           <?php
+                                           }
+                                           else if($stock_actual > $stock_maximo){ ?>
+                                               <td style="background-color: #8ac68d"><center><?php echo $productos_dato['stock'];?></center></td>
+                                           <?php
+                                           }else{ ?>
+                                               <td><center><?php echo $productos_dato['stock'];?></center></td>
+                                           <?php
+                                           }
+                                           ?>
+
+                                           <td><?php echo $productos_dato['precio_compra'];?></td>
+                                           <td><?php echo $productos_dato['precio_venta'];?></td>
+                                           <td><?php echo $productos_dato['fecha_ingreso'];?></td>
+                                           <td><?php echo $productos_dato['email'];?></td>
+                                           <td>
+                                               <center>
+                                                   <div class="btn-group">
+                                                       <a href="show.php?id=<?php echo $id_producto; ?>" type="button" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> Ver</a>
+                                                       <a href="update.php?id=<?php echo $id_producto; ?>" type="button" class="btn btn-success btn-sm"><i class="fa fa-pencil-alt"></i> Editar</a>
+                                                       <a href="delete.php?id=<?php echo $id_producto; ?>" type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Excluir</a>
+                                                   </div>
                                                </center>
-                                        </td>
-
-                                    </tr>
-                                       
-                                    <?php
-                                    }
-                                    ?>
-                                </tbody>
-
-                                <tfoot>
-                                </tfoot>
-                            </table>
+                                           </td>
+                                       </tr>
+                                       <?php
+                                   }
+                                   ?>
+                                   </tbody>
+                                   </tfoot>
+                               </table>
                             </div>
 
                         </div>

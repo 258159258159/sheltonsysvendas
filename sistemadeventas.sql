@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 06-Jul-2023 às 23:58
+-- Tempo de geração: 08-Jul-2023 às 00:59
 -- Versão do servidor: 8.0.31
 -- versão do PHP: 7.4.33
 
@@ -54,10 +54,10 @@ CREATE TABLE IF NOT EXISTS `tb_almacen` (
 --
 
 INSERT INTO `tb_almacen` (`id_producto`, `codigo`, `nombre`, `descripcion`, `stock`, `stock_minimo`, `stock_maximo`, `precio_compra`, `precio_venta`, `fecha_ingreso`, `imagen`, `id_usuario`, `id_categoria`, `fyh_creacion`, `fyh_actualizacion`) VALUES
-(1, 'P-00001', 'BUDWEISER', 'cerveja puro malte de 380ml', 570, 50, 1500, '5', '15', '2023-07-05', '2023-07-05-10-12-09__comida3.png', 1, 1, '2023-07-05 09:48:04', '2023-07-05 22:12:09'),
-(2, 'P-00002', 'ANTARTICA', 'cerveja brasileira', 750, 50, 1500, '7', '18', '2023-07-05', '2023-07-05-07-43-17__cerveja1.png', 1, 2, '2023-07-05 19:43:17', '0000-00-00 00:00:00'),
-(3, 'P-00003', 'Coca-Cola', 'refrigerante de 3 litros', 350, 15, 800, '6', '15', '2023-07-05', '2023-07-05-07-44-34__refri3.jpg', 1, 4, '2023-07-05 19:44:34', '2023-07-05 21:38:49'),
-(4, 'P-00004', 'FANTA LARANJA', 'em lata ', 150, 15, 100, '3', '8', '2023-07-06', '2023-07-06-06-56-14__refri1.jpg', 1, 4, '2023-07-06 18:56:14', '0000-00-00 00:00:00');
+(1, 'P-00001', 'BUDWEISER', 'puro malte', 200, 20, 300, '5', '15', '2023-07-05', '2023-07-05-10-12-09__comida3.png', 1, 1, '2023-07-05 09:48:04', '2023-07-07 16:03:09'),
+(2, 'P-00002', 'ANTARTICA', 'cerveja brasileira', 100, 20, 300, '7', '18', '2023-07-05', '2023-07-05-07-43-17__cerveja1.png', 1, 2, '2023-07-05 19:43:17', '0000-00-00 00:00:00'),
+(3, 'P-00003', 'Coca-Cola', '3 litros', 100, 20, 300, '6', '15', '2023-07-05', '2023-07-05-07-44-34__refri3.jpg', 1, 4, '2023-07-05 19:44:34', '2023-07-07 16:03:21'),
+(4, 'P-00004', 'FANTA LARANJA', 'em lata ', 100, 20, 300, '3', '8', '2023-07-06', '2023-07-06-06-56-14__refri1.jpg', 1, 4, '2023-07-06 18:56:14', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `tb_compras` (
   `id_compra` int NOT NULL AUTO_INCREMENT,
   `id_producto` int NOT NULL,
   `nro_compra` int NOT NULL,
-  `fecha_compra` datetime NOT NULL,
+  `fecha_compra` date NOT NULL,
   `id_proveedor` int NOT NULL,
   `comprobante` varchar(255) COLLATE utf8mb4_spanish_ci NOT NULL,
   `id_usuario` int NOT NULL,
@@ -110,22 +110,15 @@ CREATE TABLE IF NOT EXISTS `tb_compras` (
   KEY `id_producto` (`id_producto`),
   KEY `id_proveedor` (`id_proveedor`),
   KEY `id_usuario` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
 -- Extraindo dados da tabela `tb_compras`
 --
 
 INSERT INTO `tb_compras` (`id_compra`, `id_producto`, `nro_compra`, `fecha_compra`, `id_proveedor`, `comprobante`, `id_usuario`, `precio_compra`, `cantidad`, `fyh_creacion`, `fyh_actualizacion`) VALUES
-(1, 1, 1, '2023-07-05 13:35:48', 5, 'FATURA', 1, '200', 50, '2023-07-05 13:35:48', '2023-07-05 13:35:48'),
-(2, 1, 2, '2023-07-06 00:00:00', 6, 'FATURA 2525', 1, '6200', 120, '2023-07-06 16:41:07', '0000-00-00 00:00:00'),
-(3, 3, 3, '2023-07-06 00:00:00', 5, 'NF 6633', 1, '7200', 50, '2023-07-06 16:45:29', '0000-00-00 00:00:00'),
-(4, 1, 4, '2023-07-06 00:00:00', 6, 'FATURA 25251515', 1, '7500', 70, '2023-07-06 18:47:23', '0000-00-00 00:00:00'),
-(5, 1, 4, '2023-07-06 00:00:00', 6, 'FATURA 25251515', 1, '7500', 70, '2023-07-06 18:47:26', '0000-00-00 00:00:00'),
-(6, 1, 4, '2023-07-06 00:00:00', 6, 'FATURA 25251515', 1, '7500', 70, '2023-07-06 18:47:30', '0000-00-00 00:00:00'),
-(7, 3, 7, '2023-07-06 00:00:00', 5, 'DATURA 484848', 1, '6800', 50, '2023-07-06 18:49:53', '0000-00-00 00:00:00'),
-(8, 2, 8, '2023-07-06 00:00:00', 6, 'FATURA 363636', 1, '7500', 250, '2023-07-06 18:53:15', '0000-00-00 00:00:00'),
-(9, 4, 9, '2023-07-06 00:00:00', 6, 'NF 362514', 1, '300', 100, '2023-07-06 18:57:17', '0000-00-00 00:00:00');
+(10, 4, 1, '2023-07-07', 6, 'NF 551515', 1, '3500', 130, '2023-07-07 12:43:07', '2023-07-07 13:51:38'),
+(12, 1, 3, '2023-07-07', 6, 'NF-6363', 1, '500', 100, '2023-07-07 16:05:29', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 

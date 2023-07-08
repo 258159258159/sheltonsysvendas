@@ -277,7 +277,7 @@ include('../app/controllers/compras/listado_de_compras.php');
                                                 <div class="col-md-2">
                                                     <div class="form-group">
                                                         <label for="">Data Entrada:</label>
-                                                        <input type="date" name="fecha_ingreso" id="fecha_ingreso" class="form-control" disabled>
+                                                        <input type="date" style="font-size: 12px" name="fecha_ingreso" id="fecha_ingreso" class="form-control" disabled>
                                                     </div>
                                                 </div>
                                             </div>
@@ -507,7 +507,7 @@ include('../app/controllers/compras/listado_de_compras.php');
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="">Data da Compra</label>
-                                                <input type="date" class="form-control" id="fecha_compra">
+                                                <input type="date"  class="form-control" id="fecha_compra">
                                             </div>
                                         </div>
 
